@@ -1,0 +1,14 @@
+.caraouselItem {
+  object-fit: cover;
+  height: 370px;
+  width: 100%;
+}
+.OpaqueBox {
+  background-color: white;
+  opacity: 70%;
+  color: black;
+  padding: 16px;
+}
+.OpaqueBox h5 {
+  font-weight: bold;
+}

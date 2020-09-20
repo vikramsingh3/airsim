@@ -1,0 +1,27 @@
+a:link.Card {
+  text-decoration: none;
+  text-align: center;
+}
+
+.Card div {
+  width: 150px;
+  height: 150px;
+  margin: 10px;
+  padding: 20px;
+  box-shadow: 2px 2px 10px gray;
+}
+.Card div:hover {
+  border: 2px solid orange;
+  border-radius: 5%;
+}
+
+.Card img {
+  object-fit: cover;
+  height: 60px;
+}
+
+.Card h4 {
+  color: darkorange;
+  font-size: 20px;
+  padding: 20px 0;
+}

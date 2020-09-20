@@ -1,0 +1,17 @@
+.Footer {
+  background-color: darkorange;
+  color: white;
+}
+.Social {
+  font-size: 30px;
+  padding: 10px;
+  color: white;
+}
+.Footer a:link {
+  text-decoration: underline;
+  color: white;
+}
+
+.Footer a:hover {
+  color: black;
+}
