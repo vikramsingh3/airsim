@@ -1,14 +1,14 @@
 import React from "react";
 import AirSimLogo from "../../assets/AirSimLogo.jpg";
 import classes from "./Navigation.module.css";
-
+import { Link } from "react-router-dom";
 const Navigation = () => {
   return (
     <header>
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="/">
+        <Link class="navbar-brand" to="/">
           <img src={AirSimLogo} alt="AirSim" className={classes.AirSimLogo} />
-        </a>
+        </Link>
         <button
           class="navbar-toggler"
           type="button"
@@ -24,9 +24,8 @@ const Navigation = () => {
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item dropdown">
-              <a
+              <Link
                 class="nav-link dropdown-toggle"
-                href="/"
                 id="navbarDropdown1"
                 role="button"
                 data-toggle="dropdown"
@@ -34,23 +33,24 @@ const Navigation = () => {
                 aria-expanded="false"
               >
                 Prepaid
-              </a>
+              </Link>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown1">
-                <a class="dropdown-item" href="/">
+                <Link class="dropdown-item" to="/prepaid/recharge">
                   Recharge
-                </a>
-                <a class="dropdown-item" href="/">
+                </Link>
+
+                <Link class="dropdown-item" to="/prepaid/new">
                   New Connection
-                </a>
-                <a class="dropdown-item" href="/">
+                </Link>
+
+                <Link class="dropdown-item" to="/prepaid/plans">
                   View Plans
-                </a>
+                </Link>
               </div>
             </li>
             <li class="nav-item dropdown">
-              <a
+              <Link
                 class="nav-link dropdown-toggle"
-                href="/"
                 id="navbarDropdown2"
                 role="button"
                 data-toggle="dropdown"
@@ -58,17 +58,17 @@ const Navigation = () => {
                 aria-expanded="false"
               >
                 Postpaid
-              </a>
+              </Link>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
-                <a class="dropdown-item" href="/">
+                <Link class="dropdown-item" to="/postpaid/recharge">
                   Pay Bill
-                </a>
-                <a class="dropdown-item" href="/">
+                </Link>
+                <Link class="dropdown-item" to="/postpaid/new">
                   New Connection
-                </a>
-                <a class="dropdown-item" href="/">
+                </Link>
+                <Link class="dropdown-item" to="/postpaid/plans">
                   View Plans
-                </a>
+                </Link>
               </div>
             </li>
           </ul>
