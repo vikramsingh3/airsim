@@ -1,0 +1,14 @@
+.PostpaidPlans {
+  padding: 20px 60px;
+}
+.PostpaidPlans h3 {
+  text-align: center;
+}
+.PostpaidPlans img {
+  padding: 0 30px;
+  width: 100%;
+  height: 450px;
+}
+.PostpaidPlans ul {
+  list-style: none;
+}

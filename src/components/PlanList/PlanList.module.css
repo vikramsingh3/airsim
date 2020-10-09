@@ -1,0 +1,13 @@
+.PlanList {
+  padding: 20px;
+  margin: 20px;
+  box-shadow: 0px 0px 3px gray;
+}
+.highlight {
+  color: red;
+  font-size: 18px;
+}
+.grayed {
+  color: gray;
+  font-size: 14px;
+}

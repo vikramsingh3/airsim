@@ -14,7 +14,7 @@ const Home = () => {
         title="AirSim Postpaid starting at Rs.499"
         subtitle="Unlimited Calling ,75GB Data , AirStream and many more"
         btnText="View Plans"
-        url=""
+        url="/postpaid/plans"
         textAlign="left"
       ></Banner>
       <Banner
@@ -22,7 +22,7 @@ const Home = () => {
         title="AirSim Unmilited Prepaid"
         subtitle="Our best plan , our best prices , on best network"
         btnText="View Plans"
-        url=""
+        url="/prepaid/plans"
         textAlign="right"
       ></Banner>
     </div>

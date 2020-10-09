@@ -1,0 +1,14 @@
+.PrepaidPlans {
+  padding: 20px 60px;
+}
+.PrepaidPlans h3 {
+  text-align: center;
+}
+.PrepaidPlans img {
+  padding: 0 30px;
+  width: 100%;
+  height: 450px;
+}
+.PrepaidPlans ul {
+  list-style: none;
+}

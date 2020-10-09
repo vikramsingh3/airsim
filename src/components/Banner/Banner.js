@@ -1,5 +1,6 @@
 import React from "react";
 import classes from "./Banner.module.css";
+import { Link } from "react-router-dom";
 const Banner = (props) => {
   return (
     <div className={classes.Banner}>
@@ -9,9 +10,9 @@ const Banner = (props) => {
       >
         <h3>{props.title}</h3>
         <p>{props.subtitle}</p>
-        <a type="button" className="btn btn-danger">
+        <Link to={props.url} className="btn btn-danger">
           {props.btnText}
-        </a>
+        </Link>
       </div>
     </div>
   );
