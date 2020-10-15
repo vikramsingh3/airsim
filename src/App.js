@@ -4,6 +4,7 @@ import "./App.css";
 import Navigation from "./components/Navigation/Navigation";
 import Footer from "./components/Footer/Footer";
 import Home from "./containers/Home/Home";
+import _404 from "./containers/404/_404";
 import Prepaid from "./containers/Prepaid/Prepaid";
 import PrepaidPlans from "./containers/Prepaid/PrepaidPlans/PrepaidPlans";
 import PrepaidRecharge from "./containers/Prepaid/PrepaidRecharge/PrepaidRecharge";
@@ -23,6 +24,7 @@ function App() {
           <Route path="/postpaid" exact component={Postpaid}></Route>
           <Route path="/postpaid/plans" component={PostpaidPlans}></Route>
           <Route path="/postpaid/recharge" component={PostpaidRecharge}></Route>
+          <Route component={_404}></Route>
         </Switch>
         <Footer></Footer>
       </div>
