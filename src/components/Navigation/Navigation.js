@@ -1,16 +1,25 @@
-import React from "react";
+import React, { useEffect } from "react";
 import AirSimLogo from "../../assets/AirSimLogo.jpg";
 import classes from "./Navigation.module.css";
-import { Link } from "react-router-dom";
-const Navigation = () => {
+import { Link, withRouter } from "react-router-dom";
+const Navigation = ({ history }) => {
+  useEffect(() => {
+    history.listen((location, action) => {
+      window.dataLayer.push({ event: "optimize.activate" });
+    });
+    window.changePage = (url) => {
+      history.push(url);
+    };
+  }, []);
+
   return (
     <header>
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <Link class="navbar-brand" to="/">
+      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+        <Link className="navbar-brand" to="/">
           <img src={AirSimLogo} alt="AirSim" className={classes.AirSimLogo} />
         </Link>
         <button
-          class="navbar-toggler"
+          className="navbar-toggler"
           type="button"
           data-toggle="collapse"
           data-target="#navbarSupportedContent"
@@ -18,68 +27,73 @@ const Navigation = () => {
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <span class="navbar-toggler-icon"></span>
+          <span className="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item dropdown">
-              <Link
-                class="nav-link dropdown-toggle"
+        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul className="navbar-nav mr-auto">
+            <li className="nav-item dropdown">
+              <a
+                className="nav-link dropdown-toggle"
                 id="navbarDropdown1"
                 role="button"
                 data-toggle="dropdown"
                 aria-haspopup="true"
                 aria-expanded="false"
+                href="/"
               >
                 Prepaid
-              </Link>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown1">
-                <Link class="dropdown-item" to="/prepaid/recharge">
+              </a>
+              <div className="dropdown-menu" aria-labelledby="navbarDropdown1">
+                <Link className="dropdown-item" to="/prepaid/recharge">
                   Recharge
                 </Link>
 
-                <Link class="dropdown-item" to="/prepaid/new">
+                <Link className="dropdown-item" to="/prepaid/new">
                   New Connection
                 </Link>
 
-                <Link class="dropdown-item" to="/prepaid/plans">
+                <Link className="dropdown-item" to="/prepaid/plans">
                   View Plans
                 </Link>
               </div>
             </li>
-            <li class="nav-item dropdown">
-              <Link
-                class="nav-link dropdown-toggle"
+            <li className="nav-item dropdown">
+              <a
+                className="nav-link dropdown-toggle"
                 id="navbarDropdown2"
                 role="button"
                 data-toggle="dropdown"
                 aria-haspopup="true"
                 aria-expanded="false"
+                href="/"
               >
                 Postpaid
-              </Link>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
-                <Link class="dropdown-item" to="/postpaid/recharge">
+              </a>
+              <div className="dropdown-menu" aria-labelledby="navbarDropdown2">
+                <Link className="dropdown-item" to="/postpaid/recharge">
                   Pay Bill
                 </Link>
-                <Link class="dropdown-item" to="/postpaid/new">
+                <Link className="dropdown-item" to="/postpaid/new">
                   New Connection
                 </Link>
-                <Link class="dropdown-item" to="/postpaid/plans">
+                <Link className="dropdown-item" to="/postpaid/plans">
                   View Plans
                 </Link>
               </div>
             </li>
           </ul>
-          <form class="form-inline my-2 my-lg-0">
+          <form className="form-inline my-2 my-lg-0">
             <input
-              class="form-control mr-sm-2"
+              className="form-control mr-sm-2"
               type="search"
               placeholder="Search"
               aria-label="Search"
             />
-            <button class="btn btn-outline-danger my-2 my-sm-0" type="submit">
+            <button
+              className="btn btn-outline-danger my-2 my-sm-0"
+              type="submit"
+            >
               Search
             </button>
           </form>
@@ -89,4 +103,4 @@ const Navigation = () => {
   );
 };
 
-export default Navigation;
+export default withRouter(Navigation);

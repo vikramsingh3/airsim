@@ -19,7 +19,7 @@ const Cards = () => {
   let cards = [];
   cardsData.forEach((card) => {
     cards.push(
-      <li>
+      <li key={card.url}>
         <Card service={card.service} logo={card.logo} url={card.url}></Card>
       </li>
     );

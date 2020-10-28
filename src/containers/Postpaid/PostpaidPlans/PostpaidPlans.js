@@ -32,9 +32,9 @@ const PostpaidPlans = () => {
     },
   ];
   let planlist = [];
-  plans.forEach((item) => {
+  plans.forEach((item, index) => {
     planlist.push(
-      <li>
+      <li key={index}>
         <PlanList
           price={item.price}
           data={item.data}
@@ -43,7 +43,7 @@ const PostpaidPlans = () => {
       </li>
     );
   });
-  console.log(plans);
+
   return (
     <div className={[classes.PostpaidPlans, "row"].join(" ")}>
       <div className="col-sm-12 col-md-4 left">

@@ -2,6 +2,15 @@ import React from "react";
 import classes from "./PrepaidRecharge.module.css";
 
 const PrepaidRecharge = () => {
+  const rechargeInitiated = () => {
+    alert("Recharge Initated");
+    window.dataLayer.push({
+      event: "trackEvent",
+      eventCategory: "prepaid",
+      eventLabel: "recharge",
+      eventAction: "recharge initiated",
+    });
+  };
   return (
     <div className={classes.PrepaidRecharge}>
       <div className={classes.content}>
@@ -9,7 +18,7 @@ const PrepaidRecharge = () => {
         <form>
           <div className="form-row">
             <div className="form-group col-md-5">
-              <label for="phone">Mobile Number</label>
+              <label htmlFor="phone">Mobile Number</label>
               <input
                 type="number"
                 className="form-control"
@@ -18,7 +27,7 @@ const PrepaidRecharge = () => {
               ></input>
             </div>
             <div className="form-group col-md-5">
-              <label for="amount">Amount</label>
+              <label htmlFor="amount">Amount</label>
               <input
                 type="number"
                 className="form-control"
@@ -39,7 +48,11 @@ const PrepaidRecharge = () => {
               </button>
             </div>
           </div>
-          <button type="submit" className="btn btn-lg btn-success">
+          <button
+            type="button"
+            className="btn btn-lg btn-success"
+            onClick={rechargeInitiated}
+          >
             Recharge
           </button>
         </form>

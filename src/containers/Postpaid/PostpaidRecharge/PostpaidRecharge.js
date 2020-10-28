@@ -2,6 +2,15 @@ import React from "react";
 import classes from "./PostpaidRecharge.module.css";
 
 const PostpaidRecharge = () => {
+  const payBillInitiated = () => {
+    alert("Bill payment Initated");
+    window.dataLayer.push({
+      event: "trackEvent",
+      eventCategory: "postpaid",
+      eventLabel: "pay bill",
+      eventAction: "pay bill initiated",
+    });
+  };
   return (
     <div className={classes.PostpaidRecharge}>
       <div className={classes.content}>
@@ -9,7 +18,7 @@ const PostpaidRecharge = () => {
         <form>
           <div className="form-row">
             <div className="form-group col-md-6">
-              <label for="phone">Mobile Number</label>
+              <label htmlFor="phone">Mobile Number</label>
               <input
                 type="number"
                 className="form-control"
@@ -18,7 +27,7 @@ const PostpaidRecharge = () => {
               ></input>
             </div>
             <div className="form-group col-md-6">
-              <label for="amount">Amount</label>
+              <label htmlFor="amount">Amount</label>
               <input
                 disabled
                 type="number"
@@ -28,7 +37,7 @@ const PostpaidRecharge = () => {
               ></input>
             </div>
           </div>
-          <button type="submit" className="btn btn-lg btn-success">
+          <button className="btn btn-lg btn-success" onClick={payBillInitiated}>
             Pay Bill
           </button>
         </form>
