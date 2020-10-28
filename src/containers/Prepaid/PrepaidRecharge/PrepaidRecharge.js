@@ -10,6 +10,10 @@ const PrepaidRecharge = () => {
       eventLabel: "recharge",
       eventAction: "recharge initiated",
     });
+    window.gtag("event", "recharge initiated", {
+      event_category: "prepaid",
+      event_label: "recharge",
+    });
   };
   return (
     <div className={classes.PrepaidRecharge}>

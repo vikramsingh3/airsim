@@ -4,11 +4,9 @@ import classes from "./PostpaidRecharge.module.css";
 const PostpaidRecharge = () => {
   const payBillInitiated = () => {
     alert("Bill payment Initated");
-    window.dataLayer.push({
-      event: "trackEvent",
-      eventCategory: "postpaid",
-      eventLabel: "pay bill",
-      eventAction: "pay bill initiated",
+    window.gtag("event", "bill payment initiated", {
+      event_category: "postpaid",
+      event_label: "pay bill",
     });
   };
   return (
