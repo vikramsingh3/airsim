@@ -14,10 +14,12 @@ import PostpaidPlans from "./containers/Postpaid/PostpaidPlans/PostpaidPlans";
 
 class App extends Component {
   componentDidMount() {
+    // Optimize activate on each page change
     window.dataLayer.push({ event: "optimize.activate" });
   }
   compoentDidUpdate() {
-    window.dataLayer.push({ event: "optimize.activate" });
+    // Optimize activate on each page change
+    window.dataLayer.push({ event: "optimizes.activate" });
   }
   render() {
     return (

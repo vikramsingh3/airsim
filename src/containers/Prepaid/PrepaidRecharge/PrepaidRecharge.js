@@ -4,12 +4,6 @@ import classes from "./PrepaidRecharge.module.css";
 const PrepaidRecharge = () => {
   const rechargeInitiated = () => {
     alert("Recharge Initated");
-    window.dataLayer.push({
-      event: "trackEvent",
-      eventCategory: "prepaid",
-      eventLabel: "recharge",
-      eventAction: "recharge initiated",
-    });
     window.gtag("event", "recharge initiated", {
       event_category: "prepaid",
       event_label: "recharge",

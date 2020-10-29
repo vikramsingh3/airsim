@@ -5,8 +5,13 @@ import { Link, withRouter } from "react-router-dom";
 const Navigation = ({ history }) => {
   useEffect(() => {
     history.listen((location, action) => {
+      // PageView Tracking
+      window.gtag("config", "UA-175538584-1", { page_path: location.pathname });
+      // Optimize activate on each page change
       window.dataLayer.push({ event: "optimize.activate" });
     });
+
+    // changePage global function
     window.changePage = (url) => {
       history.push(url);
     };
