@@ -1,14 +1,12 @@
 @font-face {
-  font-family: "Baloo_Regular";
-  src: url("./assets/Baloo_Tammudu_2/BalooTammudu2-Regular.ttf");
+  font-family: "Nunito";
+  src: url("./assets/Nunito/Nunito-Regular.ttf");
 }
-@font-face {
-  font-family: "Baloo_Bold";
-  src: url("./assets/Baloo_Tammudu_2/BalooTammudu2-Bold.ttf");
-}
+
 body {
   margin: 0;
-  font-family: "Baloo_Regular" !important;
+  font-family: "Nunito", sans-serif !important;
+  font-size: 16px !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
