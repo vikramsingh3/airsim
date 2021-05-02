@@ -46,11 +46,11 @@ const PrepaidPlans = () => {
 
   return (
     <div className={[classes.PrepaidPlans, "row"].join(" ")}>
-      <div className="col-sm-12 col-md-4 left">
+      <div className="col-12 col-md-5 left">
         <h3>Browse Prepaid Plans</h3>
         <img src={prepaidPlans} alt="prepaidPlans"></img>
       </div>
-      <div className="col-sm-12 col-md-8 right">
+      <div className="col-12 col-md-7 right">
         <ul>{planlist}</ul>
       </div>
     </div>
