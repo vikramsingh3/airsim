@@ -6,29 +6,24 @@ import PlanList from "../../../components/PlanList/PlanList";
 const PostpaidPlans = () => {
   const plans = [
     {
-      price: "698",
-      data: "2",
-      validity: "84",
+      price: "499",
+      data: "75",
+      validity: "1",
     },
     {
-      price: "599",
-      data: "2",
-      validity: "56",
+      price: "749",
+      data: "125",
+      validity: "1",
     },
     {
-      price: "598",
-      data: "1.5",
-      validity: "84",
+      price: "999",
+      data: "150",
+      validity: "1",
     },
     {
-      price: "399",
-      data: "1.5",
-      validity: "56",
-    },
-    {
-      price: "199",
-      data: "1",
-      validity: "28",
+      price: "1599",
+      data: "Unlimited",
+      validity: "1",
     },
   ];
   let planlist = [];
@@ -36,9 +31,9 @@ const PostpaidPlans = () => {
     planlist.push(
       <li key={index}>
         <PlanList
-          price={item.price}
-          data={item.data}
-          validity={item.validity}
+          price={"Rs. " + item.price}
+          data={item.data === "Unlimited" ? item.data : item.data + " GB"}
+          validity={item.validity + " Month"}
         ></PlanList>
       </li>
     );

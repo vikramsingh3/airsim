@@ -1,16 +1,22 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Redirect,
+  Route,
+  Switch,
+} from "react-router-dom";
 import "./App.css";
 import Navigation from "./components/Navigation/Navigation";
 import Footer from "./components/Footer/Footer";
 import Home from "./containers/Home/Home";
 import _404 from "./containers/404/_404";
-import Prepaid from "./containers/Prepaid/Prepaid";
 import PrepaidPlans from "./containers/Prepaid/PrepaidPlans/PrepaidPlans";
 import PrepaidRecharge from "./containers/Prepaid/PrepaidRecharge/PrepaidRecharge";
-import Postpaid from "./containers/Postpaid/Postpaid";
+import PrepaidRechargeNew from "./containers/Prepaid/PrepaidRecharge/PrepaidRechargeNew";
+import PrepaidNewConnection from "./containers/Prepaid/PrepaidNewConnection/PrepaidNewConnection";
 import PostpaidRecharge from "./containers/Postpaid/PostpaidRecharge/PostpaidRecharge";
 import PostpaidPlans from "./containers/Postpaid/PostpaidPlans/PostpaidPlans";
+import PostpaidNewConnection from "./containers/Postpaid/PostpaidNewConnection/PostpaidNewConnection";
 
 class App extends Component {
   componentDidMount() {
@@ -25,14 +31,27 @@ class App extends Component {
           <Navigation></Navigation>
           <Switch>
             <Route path="/" exact component={Home}></Route>
-            <Route path="/prepaid" exact component={Prepaid}></Route>
+            <Route path="/prepaid" exact>
+              <Redirect to="/prepaid/new"></Redirect>
+            </Route>
             <Route path="/prepaid/plans" component={PrepaidPlans}></Route>
             <Route path="/prepaid/recharge" component={PrepaidRecharge}></Route>
-            <Route path="/postpaid" exact component={Postpaid}></Route>
+            <Route
+              path="/prepaid/recharge-new"
+              component={PrepaidRechargeNew}
+            ></Route>
+            <Route path="/prepaid/new" component={PrepaidNewConnection}></Route>
+            <Route path="/postpaid" exact>
+              <Redirect to="/postpaid/new"></Redirect>
+            </Route>
             <Route path="/postpaid/plans" component={PostpaidPlans}></Route>
             <Route
               path="/postpaid/recharge"
               component={PostpaidRecharge}
+            ></Route>
+            <Route
+              path="/postpaid/new"
+              component={PostpaidNewConnection}
             ></Route>
             <Route component={_404}></Route>
           </Switch>

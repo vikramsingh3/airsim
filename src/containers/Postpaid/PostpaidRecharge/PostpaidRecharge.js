@@ -1,9 +1,9 @@
 import React from "react";
+import SuccessModal from "../../../components/SuccessModal/SuccessModal";
 import classes from "./PostpaidRecharge.module.css";
 
 const PostpaidRecharge = () => {
   const payBillInitiated = () => {
-    alert("Bill payment Initated");
     window.gtag("event", "bill payment initiated", {
       event_category: "postpaid",
       event_label: "pay bill",
@@ -35,9 +35,18 @@ const PostpaidRecharge = () => {
               ></input>
             </div>
           </div>
-          <button className="btn btn-lg btn-success" onClick={payBillInitiated}>
+          <button
+            className="btn btn-lg btn-success"
+            onClick={payBillInitiated}
+            data-toggle="modal"
+            data-target="#modalCenter"
+          >
             Pay Bill
           </button>
+          <SuccessModal
+            title="Success"
+            message="Bill payment request processed"
+          />
         </form>
       </div>
     </div>

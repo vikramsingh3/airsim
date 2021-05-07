@@ -36,9 +36,9 @@ const PrepaidPlans = () => {
     planlist.push(
       <li key={index}>
         <PlanList
-          price={item.price}
-          data={item.data}
-          validity={item.validity}
+          price={"Rs. " + item.price}
+          data={item.data + " GB"}
+          validity={item.validity + " Days"}
         ></PlanList>
       </li>
     );

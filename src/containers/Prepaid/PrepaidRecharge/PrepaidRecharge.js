@@ -1,9 +1,9 @@
 import React from "react";
+import SuccessModal from "../../../components/SuccessModal/SuccessModal";
 import classes from "./PrepaidRecharge.module.css";
 
 const PrepaidRecharge = () => {
   const rechargeInitiated = () => {
-    alert("Recharge Initated");
     window.gtag("event", "recharge initiated", {
       event_category: "prepaid",
       event_label: "recharge",
@@ -50,9 +50,15 @@ const PrepaidRecharge = () => {
             type="button"
             className="btn btn-lg btn-success"
             onClick={rechargeInitiated}
+            data-toggle="modal"
+            data-target="#modalCenter"
           >
             Recharge
           </button>
+          <SuccessModal
+            title="Success"
+            message="Prepaid recharge request processed"
+          />
         </form>
       </div>
     </div>

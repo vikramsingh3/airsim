@@ -5,15 +5,15 @@ const PlanList = (props) => {
   return (
     <div className={[classes.PlanList, "row"].join(" ")}>
       <div className="col-4 col-sm-3">
-        <div className={classes.highlight}>Rs. {props.price} </div>
+        <div className={classes.highlight}>{props.price} </div>
         <div className={classes.grayed}> Unlimited Calls </div>
       </div>
       <div className="col-4 col-sm-3">
-        <div className={classes.highlight}>{props.data} GB</div>
+        <div className={classes.highlight}>{props.data}</div>
         <div className={classes.grayed}> Data </div>
       </div>
       <div className="col-4 col-sm-3">
-        <div className={classes.highlight}>{props.validity} Days </div>
+        <div className={classes.highlight}>{props.validity}</div>
         <div className={classes.grayed}> Validity</div>
       </div>
       <div className="col-12 col-sm-3">
