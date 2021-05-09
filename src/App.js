@@ -17,6 +17,7 @@ import PrepaidNewConnection from "./containers/Prepaid/PrepaidNewConnection/Prep
 import PostpaidRecharge from "./containers/Postpaid/PostpaidRecharge/PostpaidRecharge";
 import PostpaidPlans from "./containers/Postpaid/PostpaidPlans/PostpaidPlans";
 import PostpaidNewConnection from "./containers/Postpaid/PostpaidNewConnection/PostpaidNewConnection";
+import VideoParallax from "./components/VideoParallax/VideoParallax";
 
 class App extends Component {
   componentDidMount() {
@@ -53,6 +54,7 @@ class App extends Component {
               path="/postpaid/new"
               component={PostpaidNewConnection}
             ></Route>
+            <Route path="/video" component={VideoParallax}></Route>
             <Route component={_404}></Route>
           </Switch>
           <Footer></Footer>

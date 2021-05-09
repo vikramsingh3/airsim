@@ -1,8 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
 import SuccessModal from "../../../components/SuccessModal/SuccessModal";
 import classes from "./PostpaidRecharge.module.css";
 
 const PostpaidRecharge = () => {
+  useEffect(() => {
+    let storedPhone = window.sessionStorage.getItem("postpaidPhone");
+    let storedPlan = window.sessionStorage.getItem("postpaidPlan");
+    if (storedPhone) {
+      document.getElementById("phone").value = storedPhone;
+    }
+    if (storedPlan) {
+      document.getElementById("amount").value = JSON.parse(storedPlan)?.price;
+    }
+  }, []);
   const payBillInitiated = () => {
     window.gtag("event", "bill payment initiated", {
       event_category: "postpaid",
@@ -28,7 +38,7 @@ const PostpaidRecharge = () => {
               <label htmlFor="amount">Amount</label>
               <input
                 disabled
-                type="number"
+                type="text"
                 className="form-control"
                 id="amount"
                 placeholder="Rs."
@@ -36,6 +46,7 @@ const PostpaidRecharge = () => {
             </div>
           </div>
           <button
+            type="button"
             className="btn btn-lg btn-success"
             onClick={payBillInitiated}
             data-toggle="modal"

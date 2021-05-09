@@ -17,7 +17,13 @@ const PlanList = (props) => {
         <div className={classes.grayed}> Validity</div>
       </div>
       <div className="col-12 col-sm-3">
-        <button type="button" className="btn btn-danger float-right btn-block">
+        <button
+          type="button"
+          className="btn btn-danger float-right btn-block"
+          onClick={() => {
+            props.btnHandler(props.price, props.data, props.validity);
+          }}
+        >
           Select
         </button>
       </div>

@@ -1,13 +1,34 @@
-import React from "react";
+import React, { useEffect } from "react";
 import SuccessModal from "../../../components/SuccessModal/SuccessModal";
 import classes from "./PrepaidRecharge.module.css";
 
 const PrepaidRecharge = () => {
+  useEffect(() => {
+    let storedPhone = window.sessionStorage.getItem("prepaidPhone");
+    let storedPlan = window.sessionStorage.getItem("prepaidPlan");
+    if (storedPhone) {
+      document.getElementById("phone").value = storedPhone;
+    }
+    if (storedPlan) {
+      document.getElementById("amount").value = JSON.parse(storedPlan)?.price;
+    }
+  }, []);
   const rechargeInitiated = () => {
     window.gtag("event", "recharge initiated", {
       event_category: "prepaid",
       event_label: "recharge",
     });
+  };
+  const browsePlanHandler = () => {
+    let phone = document.getElementById("phone")?.value;
+    if (phone) {
+      window.sessionStorage.setItem("prepaidPhone", phone);
+    }
+    window.gtag("event", "browse plan clicked", {
+      event_category: "prepaid",
+      event_label: "browse plan",
+    });
+    window.changePage("/prepaid/plans");
   };
   return (
     <div className={classes.PrepaidRecharge}>
@@ -27,10 +48,11 @@ const PrepaidRecharge = () => {
             <div className="form-group col-md-5">
               <label htmlFor="amount">Amount</label>
               <input
-                type="number"
+                type="text"
                 className="form-control"
                 id="amount"
                 placeholder="Enter Amount"
+                disabled
               ></input>
             </div>
             <div
@@ -41,6 +63,7 @@ const PrepaidRecharge = () => {
                 className={[classes.absolute, "btn btn-light btn-block"].join(
                   " "
                 )}
+                onClick={browsePlanHandler}
               >
                 Browse Plans
               </button>

@@ -1,14 +1,35 @@
-import React from "react";
+import React, { useEffect } from "react";
 import classes from "./PrepaidRecharge.module.css";
 import PrepaidNewImg from "../../../assets/prepaid-recharge-new.png";
 import SuccessModal from "../../../components/SuccessModal/SuccessModal";
 
 const PrepaidRechargeNew = () => {
+  useEffect(() => {
+    let storedPhone = window.sessionStorage.getItem("prepaidPhone");
+    let storedPlan = window.sessionStorage.getItem("prepaidPlan");
+    if (storedPhone) {
+      document.getElementById("phone").value = storedPhone;
+    }
+    if (storedPlan) {
+      document.getElementById("amount").value = JSON.parse(storedPlan)?.price;
+    }
+  }, []);
   const rechargeInitiated = () => {
     window.gtag("event", "recharge initiated", {
       event_category: "prepaid",
       event_label: "recharge",
     });
+  };
+  const browsePlanHandler = () => {
+    let phone = document.getElementById("phone")?.value;
+    if (phone) {
+      window.sessionStorage.setItem("prepaidPhone", phone);
+    }
+    window.gtag("event", "browse plan clicked", {
+      event_category: "prepaid",
+      event_label: "browse plan",
+    });
+    window.changePage("/prepaid/plans");
   };
   return (
     <div className="row m-0">
@@ -30,14 +51,18 @@ const PrepaidRechargeNew = () => {
           <div className="form-group col-md-5">
             <label htmlFor="amount">Amount</label>
             <input
-              type="number"
+              type="text"
               className="form-control"
               id="amount"
               placeholder="Enter Amount"
             ></input>
           </div>
           <div className="form-group col-md-2">
-            <button type="button" className="btn btn-light btn-block">
+            <button
+              type="button"
+              className="btn btn-light btn-block"
+              onClick={browsePlanHandler}
+            >
               Browse Plans
             </button>
           </div>

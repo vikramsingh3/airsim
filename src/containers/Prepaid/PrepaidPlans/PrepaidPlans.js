@@ -31,6 +31,15 @@ const PrepaidPlans = () => {
       validity: "28",
     },
   ];
+  const planSelectHandler = (price, data, validity) => {
+    let prepaidPlan = { price: price, data: data, validity: validity };
+    window.sessionStorage.setItem("prepaidPlan", JSON.stringify(prepaidPlan));
+    window.gtag("event", "plan selected", {
+      event_category: "prepaid",
+      event_label: price,
+    });
+    window.changePage("/prepaid/recharge");
+  };
   let planlist = [];
   plans.forEach((item, index) => {
     planlist.push(
@@ -39,6 +48,7 @@ const PrepaidPlans = () => {
           price={"Rs. " + item.price}
           data={item.data + " GB"}
           validity={item.validity + " Days"}
+          btnHandler={planSelectHandler}
         ></PlanList>
       </li>
     );

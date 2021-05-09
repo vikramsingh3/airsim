@@ -27,6 +27,15 @@ const PostpaidPlans = () => {
     },
   ];
   let planlist = [];
+  const planSelectHandler = (price, data, validity) => {
+    let postpaidPlan = { price: price, data: data, validity: validity };
+    window.sessionStorage.setItem("postpaidPlan", JSON.stringify(postpaidPlan));
+    window.gtag("event", "plan selected", {
+      event_category: "postpaid",
+      event_label: price,
+    });
+    window.changePage("/postpaid/recharge");
+  };
   plans.forEach((item, index) => {
     planlist.push(
       <li key={index}>
@@ -34,6 +43,7 @@ const PostpaidPlans = () => {
           price={"Rs. " + item.price}
           data={item.data === "Unlimited" ? item.data : item.data + " GB"}
           validity={item.validity + " Month"}
+          btnHandler={planSelectHandler}
         ></PlanList>
       </li>
     );
